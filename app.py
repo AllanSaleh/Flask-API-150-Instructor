@@ -5,8 +5,13 @@ from limiter import limiter
 from caching import cache
 
 from models.customer import Customer
+from models.order import Order
+from models.product import Product
+from models.orderProduct import order_product
 
 from routes.customerBP import customer_blueprint
+from routes.productBP import product_blueprint
+from routes.orderBP import order_blueprint
 
 def create_app(config_name):
 
@@ -22,6 +27,8 @@ def create_app(config_name):
 
 def blueprint_config(app):
     app.register_blueprint(customer_blueprint, url_prefix='/customers')
+    app.register_blueprint(product_blueprint, url_prefix='/products')
+    app.register_blueprint(order_blueprint, url_prefix='/orders')
 
 def rate_limit_config():
     limiter.limit("3 per day")(customer_blueprint)
