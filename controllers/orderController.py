@@ -15,3 +15,23 @@ def save():
 def find_all():
     all_orders = orderService.find_all()
     return orders_schema.jsonify(all_orders), 200
+
+def find_by_id(id):
+    orders = orderService.find_by_id(id)
+    return orders_schema.jsonify(orders), 200
+
+## whos calling the controller? Answer: The routes.py file so lets go to orderBP.py
+
+def find_by_customer_id(id):
+    orders = orderService.find_by_customer_id(id)
+    return orders_schema.jsonify(orders), 200
+
+## GO TO THE ROUTES/ORDERBP.PY FILE
+
+
+def find_by_customer_email():
+    email = request.json['email']
+    orders = orderService.find_by_customer_email(email)
+    return orders_schema.jsonify(orders), 200
+
+## GO TO THE ORDERBP.PY ROUTE FILE

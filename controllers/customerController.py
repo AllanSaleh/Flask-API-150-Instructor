@@ -21,3 +21,12 @@ def save(): #name the controller will always be the same as the service function
 def find_all():
     all_customers = customerService.find_all()
     return customers_schema.jsonify(all_customers), 200
+
+def find_all_paginate():
+    page = int(request.args.get('page'))
+    per_page = int(request.args.get('per_page'))
+    customers = customerService.find_all_paginate(page, per_page)
+    return customers_schema.jsonify(customers), 200
+
+
+# GO TO THE ROUTES/CUSTOMERBP.PY FILE

@@ -9,10 +9,14 @@ class CustomerSchema(ma.Schema):
     phone = fields.String(required=True)
     username = fields.String(required=True)
     password = fields.String(required=True)
-
     class Meta: 
         fields = ("id", "name", "email", "phone", "username", "password")
 
 
 customer_schema = CustomerSchema()
 customers_schema = CustomerSchema(many=True, exclude=["password"])
+
+## Maybe we can make a new Schema for the Customer that doesn't include the password. We can do this by creating a new schema for the Customer object and excluding the password field.
+class CustomerOrderSchema(ma.Schema):
+    name = fields.String(required=True)
+    email = fields.Email(required=True)
