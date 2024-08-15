@@ -17,6 +17,12 @@ def login(username, password): #Login using unique info so we dont query multipl
             "auth_token": auth_token
         }
         return response
+    else:
+        response = {
+            "status": "fail",
+            "message": "Invalid username or password"
+        }
+        return response
 
 ## NOW GO TO CUSTOMERCONTROLLER.PY FILE TO CREATE THE LOGIN FUNCTION THAT WILL CALL THIS FUNCTION
 
