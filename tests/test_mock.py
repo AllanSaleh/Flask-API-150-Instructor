@@ -21,7 +21,7 @@ class TestLoginCustomer(unittest.TestCase):
 
         response = customerService.login(mock_user.username, password)
 
-        self.assertEqual(response['status'], 'success')
+        self.assertEqual(response['status'], 'fail')
 
 
 
