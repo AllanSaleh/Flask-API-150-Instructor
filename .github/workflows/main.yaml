@@ -66,7 +66,7 @@ jobs: #The things we want to happen on push
     needs: test
     runs-on: ubuntu-latest #Ubuntu is a widely used linux distribution that is heavily support and has alot of prebuilt Github actions
 
-    if: github.ref == 'ref/heads/main'
+    if: github.ref == 'refs/heads/main'
     steps:
       - name: Deploy the App
         env:
