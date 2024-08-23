@@ -9,8 +9,9 @@ class CustomerSchema(ma.Schema):
     phone = fields.String(required=True)
     username = fields.String(required=True)
     password = fields.String(required=True)
+    role_id = fields.Integer(required=True)
     class Meta: 
-        fields = ("id", "name", "email", "phone", "username", "password")
+        fields = ("id", "name", "email", "phone", "username", "password", "role_id")
 
 
 customer_schema = CustomerSchema()
